@@ -1,6 +1,21 @@
 [package]
-name = "ansii-embed"
+name = "anbed"
 version = "0.1.0"
+authors = ["Thomas Nash <thomas.e.nash@googlemail.com>"]
+description = "A CLI tool for embedding ansii escape codes that are not stored as a single escape code byte but separate bytes for each letter."
+readme = "./README.md"
+repository = "https://github.com/tomna1/ansii-embed"
 edition = "2024"
 
+[[bin]]
+name = "anbed"
+path = "./src/main.rs"
+
 [dependencies]
+anyhow = "1.0.102"
+clap = { version = "4.5.60", features = ["derive"] }
+thiserror = "2.0.18"
+
+[lints.rust]
+unsafe_code = "forbid"
+
