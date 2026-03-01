@@ -4,8 +4,8 @@ use std::path::PathBuf;
 
 use clap::Parser;
 
-mod ansii_embed;
-use ansii_embed::embed_ansii;
+mod ansi_embed;
+use ansi_embed::embed_ansi;
 
 mod error;
 pub use error::AnbedError;
@@ -43,7 +43,7 @@ fn process_lines<R: BufRead>(reader: R) -> Result<(), AnbedError> {
     for line_result in reader.lines() {
         match line_result {
             Ok(line) => {
-                let embedded_ansii_text = embed_ansii(&line)?;
+                let embedded_ansii_text = embed_ansi(&line)?;
                 println!("{embedded_ansii_text}");
             }
             Err(err) => {
