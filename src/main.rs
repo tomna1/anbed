@@ -43,7 +43,7 @@ fn process_lines<R: BufRead>(reader: R) -> Result<(), AnbedError> {
     for line_result in reader.lines() {
         match line_result {
             Ok(line) => {
-                let embedded_ansii_text = embed_ansi(&line)?;
+                let embedded_ansii_text = embed_ansi(&line);
                 println!("{embedded_ansii_text}");
             }
             Err(err) => {
